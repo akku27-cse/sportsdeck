@@ -1,6 +1,6 @@
 # SportsDeck - Real-Time Sports Scores in VS Code
 
-![SportsDeck Banner](#)
+
 
 ## Overview
 
@@ -125,8 +125,8 @@ This project is licensed under the [MIT License](LICENSE).
 
 Have questions or suggestions? We'd love to hear from you!
 
-- **Email:** [support@sportsdeck.dev](mailto:support@sportsdeck.dev)
-- **GitHub Issues:** [Report an issue](https://github.com/your-repo/issues)
+- **Email:** [santujana1827@gmail.com](mailto:santujana1827@gmail.com.dev)
+- **GitHub Issues:** [Report an issue](https://github.com/akku27-cse/sportsdeck/issues)
 
 ---
 

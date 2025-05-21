@@ -1,17 +1,44 @@
 {
   "name": "sportsdeck",
   "displayName": "SportsDeck",
-  "description": "Real-time sports scores in your VS Code",
+  "description": "Real-time sports scores directly in your VS Code editor",
   "version": "1.0.0",
-  "publisher": "your-publisher",
+  "publisher": "santujana",
+  "author": {
+    "name": "Santtu Jana",
+    "email": "santujana1827@gmail.com"
+  },
   "engines": {
     "vscode": "^1.75.0"
   },
   "categories": [
     "Other"
   ],
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#1E1E1E",
+    "theme": "dark"
+  },
+  "keywords": [
+    "sports",
+    "football",
+    "cricket",
+    "scores",
+    "live",
+    "matches",
+    "fixtures"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akku27-cse/sportsdeck.git"
+  },
+  "homepage": "https://github.com/akku27-cse/sportsdeck#readme",
+  "bugs": {
+    "url": "https://github.com/akku27-cse/sportsdeck/issues"
+  },
+  "license": "MIT",
   "activationEvents": [
-    "*"
+    "onStartupFinished"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -19,17 +46,17 @@
       {
         "command": "sportsdeck.showPanel",
         "title": "Show SportsDeck Panel",
-        "category": "SportsDeck"
+        "category": "Sports"
       },
       {
         "command": "sportsdeck.toggleLiveUpdates",
         "title": "Toggle Live Updates",
-        "category": "SportsDeck"
+        "category": "Sports"
       },
       {
         "command": "sportsdeck.refresh",
         "title": "Refresh Sports Data",
-        "category": "SportsDeck"
+        "category": "Sports"
       }
     ],
     "configuration": {
@@ -41,7 +68,18 @@
             "football",
             "cricket"
           ],
-          "description": "List of sports to follow"
+          "description": "List of sports to follow",
+          "items": {
+            "type": "string",
+            "enum": [
+              "football",
+              "cricket",
+              "basketball",
+              "tennis",
+              "baseball",
+              "hockey"
+            ]
+          }
         },
         "sportsdeck.favoriteLeagues": {
           "type": "array",
@@ -59,7 +97,9 @@
         "sportsdeck.updateInterval": {
           "type": "number",
           "default": 60,
-          "description": "Update interval in seconds"
+          "minimum": 30,
+          "maximum": 600,
+          "description": "Update interval in seconds (30-600)"
         },
         "sportsdeck.displayMode": {
           "type": "string",
@@ -75,32 +115,42 @@
           "type": "boolean",
           "default": true,
           "description": "Enable notifications for important events"
+        },
+        "sportsdeck.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Optional API key for premium sports data providers",
+          "scope": "application"
         }
       }
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run package",
+    "vscode:prepublish": "cross-env NODE_OPTIONS=--openssl-legacy-provider npm run package",
     "compile": "webpack",
     "watch": "webpack --watch",
-    "package": "webpack --mode production --devtool hidden-source-map",
-    "lint": "eslint src --ext ts",
-    "test": "npm run compile && node ./out/test/runTest.js"
+    "package": "webpack --mode production --devtool hidden-source-map"
   },
   "devDependencies": {
-    "@types/node": "^16.18.126",
+    "@types/node": "^18.0.0",
     "@types/vscode": "^1.75.0",
-    "@types/ws": "^8.18.1",
+    "@types/ws": "^8.5.5",
     "@typescript-eslint/eslint-plugin": "^5.30.0",
     "@typescript-eslint/parser": "^5.30.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.13.0",
+    "process": "^0.11.10",
     "ts-loader": "^9.4.1",
     "typescript": "^4.9.4",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1"
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "axios": "^1.3.4",
     "ws": "^8.12.0"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.7",
+    "utf-8-validate": "^5.0.10"
   }
 }
