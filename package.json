@@ -37,12 +37,18 @@
       "properties": {
         "sportsdeck.favoriteSports": {
           "type": "array",
-          "default": ["football", "cricket"],
+          "default": [
+            "football",
+            "cricket"
+          ],
           "description": "List of sports to follow"
         },
         "sportsdeck.favoriteLeagues": {
           "type": "array",
-          "default": ["premier-league", "ipl"],
+          "default": [
+            "premier-league",
+            "ipl"
+          ],
           "description": "List of leagues to follow"
         },
         "sportsdeck.favoriteTeams": {
@@ -57,7 +63,11 @@
         },
         "sportsdeck.displayMode": {
           "type": "string",
-          "enum": ["statusbar", "panel", "both"],
+          "enum": [
+            "statusbar",
+            "panel",
+            "both"
+          ],
           "default": "both",
           "description": "How to display sports data"
         },
@@ -78,8 +88,9 @@
     "test": "npm run compile && node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/node": "^16.11.7",
+    "@types/node": "^16.18.126",
     "@types/vscode": "^1.75.0",
+    "@types/ws": "^8.18.1",
     "@typescript-eslint/eslint-plugin": "^5.30.0",
     "@typescript-eslint/parser": "^5.30.0",
     "eslint": "^8.13.0",

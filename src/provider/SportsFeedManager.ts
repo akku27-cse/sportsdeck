@@ -1,7 +1,9 @@
 import * as vscode from 'vscode';
 import axios from 'axios';
 import WebSocket from 'ws';
-import { Match, Sport, Team } from './models';
+import { Match} from './models/Match';
+import { Sport } from './models/Sport';
+import { Team } from './models/Team';
 import { getConfig } from '../utils/config';
 import { SPORTS_API_ENDPOINTS } from '../utils/constants';
 

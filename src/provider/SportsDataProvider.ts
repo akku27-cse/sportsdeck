@@ -1,6 +1,8 @@
 import * as vscode from 'vscode';
 import { SportsFeedManager } from './SportsFeedManager';
-import { Match, Sport, Team } from './models';
+import { Match} from './models/Match';
+import { Sport } from './models/Sport';
+import { Team } from './models/Team';
 
 export class SportsDataProvider implements vscode.TreeDataProvider<Match | Sport | Team> {
     private _onDidChangeTreeData = new vscode.EventEmitter<Match | Sport | Team | undefined>();
