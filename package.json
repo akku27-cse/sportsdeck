@@ -1,0 +1,95 @@
+{
+  "name": "sportsdeck",
+  "displayName": "SportsDeck",
+  "description": "Real-time sports scores in your VS Code",
+  "version": "1.0.0",
+  "publisher": "your-publisher",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "sportsdeck.showPanel",
+        "title": "Show SportsDeck Panel",
+        "category": "SportsDeck"
+      },
+      {
+        "command": "sportsdeck.toggleLiveUpdates",
+        "title": "Toggle Live Updates",
+        "category": "SportsDeck"
+      },
+      {
+        "command": "sportsdeck.refresh",
+        "title": "Refresh Sports Data",
+        "category": "SportsDeck"
+      }
+    ],
+    "configuration": {
+      "title": "SportsDeck",
+      "properties": {
+        "sportsdeck.favoriteSports": {
+          "type": "array",
+          "default": ["football", "cricket"],
+          "description": "List of sports to follow"
+        },
+        "sportsdeck.favoriteLeagues": {
+          "type": "array",
+          "default": ["premier-league", "ipl"],
+          "description": "List of leagues to follow"
+        },
+        "sportsdeck.favoriteTeams": {
+          "type": "array",
+          "default": [],
+          "description": "List of team IDs to follow"
+        },
+        "sportsdeck.updateInterval": {
+          "type": "number",
+          "default": 60,
+          "description": "Update interval in seconds"
+        },
+        "sportsdeck.displayMode": {
+          "type": "string",
+          "enum": ["statusbar", "panel", "both"],
+          "default": "both",
+          "description": "How to display sports data"
+        },
+        "sportsdeck.notifications": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable notifications for important events"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "lint": "eslint src --ext ts",
+    "test": "npm run compile && node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@types/vscode": "^1.75.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "eslint": "^8.13.0",
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "axios": "^1.3.4",
+    "ws": "^8.12.0"
+  }
+}

@@ -1,0 +1,79 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "npm",
+            "script": "compile",
+            "group": "build",
+            "problemMatcher": "$tsc",
+            "label": "npm: compile",
+            "detail": "tsc"
+        },
+        {
+            "type": "npm",
+            "script": "watch",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$tsc-watch",
+            "label": "npm: watch",
+            "detail": "tsc --watch"
+        },
+        {
+            "label": "webpack",
+            "type": "shell",
+            "command": "npm run compile",
+            "group": "build",
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "webpack-watch",
+            "type": "shell",
+            "command": "npm run watch",
+            "group": "build",
+            "isBackground": true,
+            "problemMatcher": [
+                {
+                    "owner": "typescript",
+                    "pattern": [
+                        {
+                            "regexp": "^.*(\\d+,\\d+):\\s+(error|warning|info)\\s+(TS\\d+)\\s*:\\s*(.*)$",
+                            "file": 1,
+                            "line": 1,
+                            "severity": 2,
+                            "code": 3,
+                            "message": 4
+                        }
+                    ],
+                    "background": {
+                        "activeOnStart": true,
+                        "beginsPattern": "^\\s*\\[?\\d*:?\\d*\\]?\\s*Compiling...",
+                        "endsPattern": "^\\s*\\[?\\d*:?\\d*\\]?\\s*Compiled successfully|Failed to compile\\.$"
+                    }
+                }
+            ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "lint",
+            "type": "shell",
+            "command": "npm run lint",
+            "problemMatcher": [
+                "$eslint-stylish"
+            ],
+            "presentation": {
+                "reveal": "always"
+            }
+        }
+    ]
+}

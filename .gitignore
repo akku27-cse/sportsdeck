@@ -1,0 +1,83 @@
+# VS Code Extension Development
+
+.vscode-test/
+*.vsix
+
+# Build artifacts
+dist/
+out/
+node_modules/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.pid
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Debug files
+*.exe
+*.out
+*.app
+
+# Coverage
+coverage/
+.nyc_output/
+
+# IDE specific files
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+ehthumbs.db
+Icon?
+._*
+
+# Testing
+test-results/
+
+# Webpack
+webpack-stats.json
+
+# Local development files
+*.local
+
+# Documentation
+/docs/_build/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Optional package-lock
+package-lock.json
+
+# Optional yarn files
+yarn.lock
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# MacOS
+**/.DS_Store
